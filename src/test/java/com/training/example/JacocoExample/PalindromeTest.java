@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class PalindromeTest {
-
+public class TestCodeCove {
 	@Test
-	public void whenEmptyString_thenAccept() {
-	    Palindrome palindromeTester = new Palindrome();
-	    assertTrue(palindromeTester.isPalindrome(""));
+	public void test1() {
+		CompareString obj1=new CompareString();
+		obj1.containsOrNot("Seleniam is Test Automation Tool");
 	}
+
 }
