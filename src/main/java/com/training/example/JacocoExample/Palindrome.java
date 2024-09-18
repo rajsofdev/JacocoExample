@@ -1,6 +1,6 @@
 package com.training.example.JacocoExample;
 
-public class CompareString {
+public class Palindrome {
 	public void containsOrNot(String value) {
 		if (value.contains("Automation")) {
 			System.out.println("We are software tester");
