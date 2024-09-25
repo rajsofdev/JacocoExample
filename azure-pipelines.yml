@@ -8,7 +8,7 @@ steps:
     goals: 'install'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
+    #jdkVersionOption: '1.11'
     mavenVersionOption: 'Default'
     jdkArchitectureOption: 'x64'
     goals: 'package'
