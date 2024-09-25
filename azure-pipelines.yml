@@ -1,26 +1,24 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
 trigger:
 - main
 
-steps:
-- task: Maven@4
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    goals: 'package'
+pool:
+  vmImage: windows-latest
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/target/surefire-reports/*.xml'
-- task: PublishCodeCoverageResults@2
-  inputs:
-    summaryFileLocation: 'target/site/jacoco/jacoco.xml'
-    pathToSources: 'src/main/java/com/training/example/JacocoExample'
+stages:
+  - stage: 'Code_Checkout'
+    jobs:
+      - job: 'Checkout_git_code'
+  - stage: 'Build'
+    jobs:
+      - job: 'BuildJob'
+        steps:
+          - task: Maven@4
+            inputs:
+              mavenPomFile: 'pom.xml'
+              goals: 'install'
+              publishJUnitResults: false
+              javaHomeOption: 'JDKVersion'
+              mavenVersionOption: 'Default'
+              mavenAuthenticateFeed: false
+              effectivePomSkip: false
+              sonarQubeRunAnalysis: false
