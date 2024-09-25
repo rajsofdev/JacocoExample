@@ -10,7 +10,7 @@ steps:
     #jdkVersionOption: '1.11'
     mavenVersionOption: 'Default'
     jdkArchitectureOption: 'x64'
-    goals: 'install'
+    goals: 'package'
 - script: mvn -v
 
 - task: PublishTestResults@2
