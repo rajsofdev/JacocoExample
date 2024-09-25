@@ -10,11 +10,14 @@ steps:
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
+    goals: 'install'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.11'
+    mavenVersionOption: 'Default'
     jdkArchitectureOption: 'x64'
     goals: 'package'
+- script: mvn -v
 
 - task: PublishTestResults@2
   inputs:
